@@ -1,1 +1,1 @@
-# project-2-team6-backEnd
+# project-2-team6-backend
