@@ -7,10 +7,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-public class DmPaperCompanyApplication {
+public class RevBookCompanyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DmPaperCompanyApplication.class, args);
+		SpringApplication.run(RevBookCompanyApplication.class, args);
 	}
 
 }

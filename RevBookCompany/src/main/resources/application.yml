@@ -7,7 +7,7 @@ spring:  profiles:    active:    - ${SPRING_PROFILE:dev}
  
 spring:
   profiles: dev
-  application:    name: DMPaperCompany
+  application:    name: RevBookCompany
   datasource:    driverClassName: org.postgresql.Driver
     initialization-mode: NEVER
     password: ${DB_PASSWORD}
@@ -27,7 +27,7 @@ spring:
 spring:
   profiles: prod
   application:
-    name: DMPaperCompany
+    name: RevBookCompany
   datasource:
     driverClassName: org.postgresql.Driver
     initialization-mode: NEVER
