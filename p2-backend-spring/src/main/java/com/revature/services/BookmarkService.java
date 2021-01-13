@@ -28,6 +28,10 @@ public class BookmarkService {
 		return bd.findByUserId(user_id);
 	}
 	
+	public int deleteBookmarkByUserIdAndBookId(int user_id, String book_id) {
+		return bd.deleteByUserIdAndBookId(user_id, book_id);
+	}
+	
 	
 	
 }
