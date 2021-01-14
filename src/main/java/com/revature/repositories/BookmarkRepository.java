@@ -10,5 +10,7 @@ import com.revature.models.Bookmark;
 public interface BookmarkRepository extends JpaRepository<Bookmark,String> {
 	
 	public ArrayList<Bookmark> findByUserId(int id);
+	
+	public ArrayList<Bookmark> findAll();
 
 }

@@ -24,8 +24,8 @@ public class PopularService {
 	}
 	
 	
-	public ArrayList<Bookmark> getBooksTest(int id) {
-		return dao.findByUserId(id);
+	public ArrayList<Bookmark> getAllBookmarks() {
+		return dao.findAll();
 	}
 	
 	public PopularCollection getPopularBooksByUserId(int id) {
@@ -35,7 +35,7 @@ public class PopularService {
 		while (iterator.hasNext()) {
 			PopularBookArray bookArray = new PopularBookArray();
 			
-			while(bookArray.isEmpty()) {
+			while(bookArray.isEmpty()) { 
 				Bookmark bm = iterator.next();
 				PopularBook book = new PopularBook();
 				book.setBookId(bm.getBookId());
