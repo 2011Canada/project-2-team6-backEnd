@@ -28,25 +28,6 @@ public class PopularService {
 		return dao.findAll();
 	}
 	
-	public PopularCollection getPopularBooksByUserId(int id) {
-		ArrayList<Bookmark> collection = dao.findByUserId(id);
-		PopularCollection bookCollection = new PopularCollection();
-		Iterator<Bookmark> iterator = collection.iterator();
-		while (iterator.hasNext()) {
-			PopularBookArray bookArray = new PopularBookArray();
-			
-			while(bookArray.isEmpty()) { 
-				Bookmark bm = iterator.next();
-				PopularBook book = new PopularBook();
-				book.setBookId(bm.getBookId());
-				book.setImgUrl(bm.getImgUrl());
-				bookArray.addElement(book); //
-			}
-			System.out.println(bookArray);
-			
-			bookCollection.addBookArray(bookArray);
-		}
-		return bookCollection;
-	}
+	
 
 }
