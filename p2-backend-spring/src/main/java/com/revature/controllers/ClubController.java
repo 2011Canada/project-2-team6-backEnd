@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Club;
 import com.revature.models.ClubBookAssociation;
+import com.revature.models.ClubComment;
 import com.revature.models.ClubMemberAssociation;
 import com.revature.models.User;
 import com.revature.services.ClubService;
@@ -87,5 +88,24 @@ public class ClubController {
 	public @ResponseBody void deleteClub(@PathVariable int clubId) {
 		cs.deleteClubByClubId(clubId);
 	}
+	
+	//Takes in a club comment object without commentId EXAMPLE: {"clubId": "1", "comment": "I don't like this club at all.", "userId": "3"}
+	@PostMapping("/{clubId}/comments")
+	public ResponseEntity<ClubComment> saveClubComment(@PathVariable int clubId, @RequestBody ClubComment cc) {
+		return new ResponseEntity<ClubComment>(cs.saveClubComment(cc), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/{clubId}/comments")
+	public ResponseEntity<List<ClubComment>> getClubCommentsByClubId(@PathVariable int clubId) {
+		return new ResponseEntity<List<ClubComment>>(cs.getClubCommentsByClubId(clubId), HttpStatus.OK);
+	}
+	
+	//Also takes in a club comment object with commentId EXAMPLE: {"commentId": "1", clubId": "1", "comment": "I don't like this club at all.", "userId": "3"}
+	@DeleteMapping("/{clubId}/comments")
+	public @ResponseBody void deleteComment(@RequestBody ClubComment cc) {
+		cs.removeClubComment(cc);
+	}
+	
+	
 	
 }

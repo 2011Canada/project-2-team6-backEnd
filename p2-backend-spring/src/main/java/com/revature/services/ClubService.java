@@ -103,9 +103,17 @@ public class ClubService {
 	
 	}
 	
+	public List<ClubComment> getClubCommentsByClubId(int clubId) {
+		return clcd.findByClubId(clubId);
+	}
+	
 	public User getUserByClubComment(ClubComment cc) {
 		int userid = cc.getUserId();
 		return us.getUserById(userid);
+	}
+	
+	public void removeClubComment(ClubComment cc) {
+		clcd.delete(cc);
 	}
 	
 	public List<String> getBooksByClubId(int clubId) {
@@ -118,6 +126,8 @@ public class ClubService {
 		
 		
 	}
+	
+	
 	
 	
 	
