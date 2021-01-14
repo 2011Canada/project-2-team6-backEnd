@@ -21,4 +21,9 @@ public class UserService {
 	public User saveUser(User user) {
 		return ud.saveAndFlush(user);
 	}
+	
+	public User getUserById(int id) {
+		return ud.getByUserId(id);
+	}
+	
 }

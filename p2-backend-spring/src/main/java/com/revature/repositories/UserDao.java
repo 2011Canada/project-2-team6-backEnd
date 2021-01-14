@@ -8,5 +8,5 @@ import com.revature.models.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Integer>{
-	
+	public User getByUserId(int userId);
 }
