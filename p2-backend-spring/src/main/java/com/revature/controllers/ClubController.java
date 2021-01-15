@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.Book;
 import com.revature.models.Club;
 import com.revature.models.ClubBookAssociation;
 import com.revature.models.ClubComment;
@@ -21,7 +23,9 @@ import com.revature.models.ClubMemberAssociation;
 import com.revature.models.User;
 import com.revature.services.ClubService;
 
+
 @RestController
+@CrossOrigin(origins="http://localhost:3000" )
 @RequestMapping("/clubs")
 public class ClubController {
 	
@@ -43,6 +47,10 @@ public class ClubController {
 		return new ResponseEntity<Club>(cs.saveClub(club), HttpStatus.CREATED);
 	}
 	
+	@GetMapping("/{clubId}")
+	public ResponseEntity<Club> getClub(@PathVariable int clubId) {
+		return new ResponseEntity<Club>(cs.getClubByClubId(clubId), HttpStatus.OK);
+	}
 	
 	@GetMapping("/{clubId}/members")
 	public ResponseEntity<List<User>> getAllClubMembers(@PathVariable int clubId) {
@@ -51,13 +59,17 @@ public class ClubController {
 	
 	
 	@PostMapping("/{clubId}/members")
-	public ResponseEntity<ClubMemberAssociation> addMemberToClub(@RequestBody int userId, @PathVariable int clubId) {
-		return new ResponseEntity<ClubMemberAssociation>(cs.saveClubMemberAssociation(new ClubMemberAssociation(userId, clubId)), HttpStatus.CREATED);
+	public ResponseEntity<ClubMemberAssociation> addMemberToClub(@RequestBody User user, @PathVariable int clubId) {
+		return new ResponseEntity<ClubMemberAssociation>(cs.saveClubMemberAssociation(new ClubMemberAssociation(user.getUserId(), clubId)), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/{clubId}/description")
 	public ResponseEntity<Club> updateClubDescription(@PathVariable int clubId, @RequestBody String newClubDescription) {
 		return new ResponseEntity<Club>(cs.updateClubDescriptionByClubId(clubId, newClubDescription), HttpStatus.ACCEPTED);
+	}
+	@GetMapping("/{clubId}/description")
+	public ResponseEntity<String> getClubDescription(@PathVariable int clubId) {
+		return new ResponseEntity<String>(cs.getClubDescriptionByClubId(clubId), HttpStatus.OK);
 	}
 	
 	@PostMapping("/{clubId}/name")
@@ -71,8 +83,8 @@ public class ClubController {
 	}
 	
 	@PostMapping("/{clubId}/books")
-	public ResponseEntity<ClubBookAssociation> saveClubBookAssociation(@PathVariable int clubId, @RequestBody String bookId) {
-		return new ResponseEntity<ClubBookAssociation>(cs.saveClubBookAssociation(new ClubBookAssociation(bookId, clubId)), HttpStatus.CREATED);
+	public ResponseEntity<ClubBookAssociation> saveClubBookAssociation(@PathVariable int clubId, @RequestBody Book book) {
+		return new ResponseEntity<ClubBookAssociation>(cs.saveClubBookAssociation(new ClubBookAssociation(book.getBookId(), clubId)), HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping("/{clubId}/books")
@@ -81,8 +93,8 @@ public class ClubController {
 	}
 	
 	@DeleteMapping("/{clubId}/members")
-	public @ResponseBody void deleteClubMemberAssociation(@PathVariable int clubId, @RequestBody int userId) {
-		cs.removeClubMemberAssociation(new ClubMemberAssociation(userId, clubId));
+	public @ResponseBody void deleteClubMemberAssociation(@PathVariable int clubId, @RequestBody User user) {
+		cs.removeClubMemberAssociation(new ClubMemberAssociation(user.getUserId(), clubId));
 	}
 	@DeleteMapping("/{clubId}")
 	public @ResponseBody void deleteClub(@PathVariable int clubId) {

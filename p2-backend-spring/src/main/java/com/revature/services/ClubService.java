@@ -43,6 +43,13 @@ public class ClubService {
 		return cld.deleteByClubId( id); 
 	}
 	
+	public Club getClubByClubId(int clubId) {
+		return cld.findByClubId(clubId);
+	}
+	
+	public String getClubDescriptionByClubId(int clubId) {
+		return cld.findByClubId(clubId).getClubDescription();
+	}
 	public Club updateClubDescriptionByClubId(int clubId, String newDescription) {
 		Club club = cld.findByClubId(clubId);
 		if(club==null) {
