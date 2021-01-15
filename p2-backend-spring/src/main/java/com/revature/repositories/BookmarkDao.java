@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -14,6 +15,8 @@ import com.revature.models.User;
 public interface BookmarkDao extends JpaRepository<Bookmark, Integer>{
 
 	public List<Bookmark> findByUserId(int user_id);
+	
+	public ArrayList<Bookmark> findAll();
 	
 	@Transactional
 	public int deleteByUserIdAndBookId(int user_id, String bookmark_id);
