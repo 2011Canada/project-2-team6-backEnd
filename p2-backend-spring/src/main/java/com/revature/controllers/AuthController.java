@@ -29,7 +29,7 @@ public class AuthController {
         public ResponseEntity<CurrentUser> verifyUser(@RequestBody Credentials user) {
         	HttpHeaders headers = new HttpHeaders();
         	headers.add("Content-Type","application/json");
- if ((user.getUserName() == "") || user.getPassword()=="") {
+ if ((user.getUsername() == "") || user.getPassword()=="") {
 	 return new ResponseEntity<CurrentUser>(new CurrentUser(), HttpStatus.NOT_FOUND);
  }
             return new ResponseEntity<CurrentUser>(this.service.validateUser(user), headers, HttpStatus.OK);

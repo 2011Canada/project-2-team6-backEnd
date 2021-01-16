@@ -2,19 +2,20 @@ package com.revature.models;
 
 public class CurrentUser {
 	private int userId;
-	private String userName;
+	private String username;
 	private String firstName;
 	private String lastName;
 	
 	public CurrentUser() {
 		super();
 	}
-	
-	public CurrentUser(int userId, String userName, String firstName, String lastName) {
-	this.userId = userId;
-	this.userName = userName;
-	this.firstName = firstName;
-	this.lastName = lastName;
+
+	public CurrentUser(int userId, String username, String firstName, String lastName) {
+		super();
+		this.userId = userId;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public int getUserId() {
@@ -25,12 +26,12 @@ public class CurrentUser {
 		this.userId = userId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getFirstName() {
@@ -56,7 +57,7 @@ public class CurrentUser {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + userId;
-		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -81,19 +82,21 @@ public class CurrentUser {
 			return false;
 		if (userId != other.userId)
 			return false;
-		if (userName == null) {
-			if (other.userName != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!userName.equals(other.userName))
+		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "CurrentUser [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
+		return "CurrentUser [userId=" + userId + ", username=" + username + ", firstName=" + firstName + ", lastName="
 				+ lastName + "]";
 	}
+	
+
 	
 	
 	

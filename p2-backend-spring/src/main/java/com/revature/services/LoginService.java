@@ -21,8 +21,8 @@ public class LoginService {
 	}
 	
 	public CurrentUser validateUser(Credentials cred) {
-		User user = dao.findByUserNameAndUserPassword(cred.getUserName(), cred.getPassword());
-		CurrentUser currentUser = new CurrentUser(user.getUserId(),user.getUserName(),user.getFirstName(), user.getLastName());
+		User user = dao.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
+		CurrentUser currentUser = new CurrentUser(user.getUserId(),user.getUsername(),user.getFirstName(), user.getLastName());
 		return currentUser;
 		
 	}
