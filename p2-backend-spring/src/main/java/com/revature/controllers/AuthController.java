@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.Credentials;
 import com.revature.models.CurrentUser;
 import com.revature.services.LoginService;
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "ec2-13-58-108-231.us-east-2.compute.amazonaws.com")
 @RestController
 @RequestMapping(path="/login")
 public class AuthController {
