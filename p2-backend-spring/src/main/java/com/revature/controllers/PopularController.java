@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Bookmark;
 import com.revature.services.PopularService;
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://ec2-13-58-108-231.us-east-2.compute.amazonaws.com")
 @RestController
 public class PopularController {
 	PopularService service;
