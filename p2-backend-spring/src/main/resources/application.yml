@@ -3,16 +3,20 @@ server:
    
    
 spring:
-  profiles:    active:    - ${SPRING_PROFILE:dev} 
+  profiles:
+    active:
+    - ${SPRING_PROFILE:dev} 
 # the dashes effectivley turns this single file into two files
 ---
   
 spring:
   profiles: dev
   
-  application:    name: RevBookCompany
+  application:
+    name: p2-backend-spring
   
-  datasource:    driverClassName: org.postgresql.Driver
+  datasource:
+    driverClassName: org.postgresql.Driver
     initialization-mode: NEVER
     password: ${DB_PASSWORD}
     username: ${DB_USERNAME}
@@ -21,8 +25,10 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
-    hibernate:      ddl-auto: update
-    properties:      hibernate:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
         default_schema: ${DB_SCHEMA}
     show-sql: true
         
