@@ -13,7 +13,7 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:3000/**", "http://ec2-13-58-108-231.us-east-2.compute.amazonaws.com");         //'*' allows all endpoints, Provide your URL/endpoint, if any.
+        config.addAllowedOrigin("http://ec2-13-58-108-231.us-east-2.compute.amazonaws.com");         //'*' allows all endpoints, Provide your URL/endpoint, if any.
         config.addAllowedHeader("*");         
         config.addAllowedMethod("POST");   //add the methods you want to allow like 'GET', 'PUT',etc. using similar statements.
         config.addAllowedMethod("GET");
