@@ -25,7 +25,7 @@ import com.revature.services.ClubService;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000" )
+@CrossOrigin(origins="http://ec2-13-58-108-231.us-east-2.compute.amazonaws.com" )
 @RequestMapping("/clubs")
 public class ClubController {
 	
