@@ -18,7 +18,7 @@ import com.revature.models.User;
 import com.revature.services.BookmarkService;
 import com.revature.services.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://ec2-13-58-108-231.us-east-2.compute.amazonaws.com")
 @RestController
 @RequestMapping("/register")
 public class RegisterController {
