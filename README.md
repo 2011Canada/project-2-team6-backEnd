@@ -57,4 +57,4 @@ The Super Duper Awesome Books (SDAB) allows users who have accounts to login and
 
 ## License
 
-This project uses the following license: [<https://github.com/2011Canada/project-2-team6-frontEnd/blob/main/LICENSE>](<https://github.com/2011Canada/project-2-team6-frontEnd/blob/main/LICENSE>).
+This project uses the following license: [<https://github.com/2011Canada/project-2-team6-backEnd/blob/main/LICENSE>](<https://github.com/2011Canada/project-2-team6-backEnd/blob/main/LICENSE>).
